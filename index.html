@@ -8,151 +8,140 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
 
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+    <script type="text/javascript" src="infinite-tabs.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="infinte-tabs.css">
 
 </head>
 <body ng-app="myApp" ng-controller="myAppController" class="container-fluid">
-    
-<!--     <div class="row">
-        <div class="col-md-6">
-
-          <ul class="nav nav-tabs infinite-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home">Home Content</div>
-            <div role="tabpanel" class="tab-pane" id="profile">Profile Content</div>
-            <div role="tabpanel" class="tab-pane" id="messages">Message</div>
-            <div role="tabpanel" class="tab-pane" id="settings">Setting</div>
-          </div>
-
-        </div>
-        <div class="col-md-6">asdasd</div>
-    </div> -->
     <br/><br/><br/>
-
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Regular Bootstrap Tabs: </h2>
+        </div>
+    </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs" role="tablist">
+                <li data-ng-repeat="tab in bootstrapTabs"  class="{{tab.css}}">
+                    <a href="{{tab.href}}" data-toggle="tab">{{tab.name}}</a>
+                </li>               
+            </ul>
 
+            <div class="tab-content">
+                <div data-ng-repeat="content in bootstrapTabsContent" role="tabpanel" class="tab-pane {{content.css}}" id="{{content.id}}">{{content.content}}</div>
+            </div>
+        </div>
+    </div>
+
+    <br/><br/><br/>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Infinite Tabs: </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs infinite-tabs" role="tablist">
+                <li data-ng-repeat="tab in tabs"  class="{{tab.css}}">
+                    <a href="{{tab.href}}" data-toggle="tab">{{tab.name}}</a>
+                </li>               
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="selected-name">See More Tabs Here</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div data-ng-repeat="content in tabsContent" role="tabpanel" class="tab-pane {{content.css}}" id="{{content.id}}">{{content.content}}</div>
+            </div>
+        </div>
+    </div>
+
+    <br/><br/><br/>
+
+    <div class="row">
+        <div class="col-md-12">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs infinite-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#home2" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-            <li role="presentation"><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-            <li role="presentation"><a href="#messages2" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-            <li role="presentation"><a href="#settings2" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-            <li role="presentation"><a href="#email" aria-controls="email" role="tab" data-toggle="tab">Email</a></li>
-            <li role="presentation"><a href="#email2" aria-controls="email" role="tab" data-toggle="tab">Email 2 </a></li>
-            <li role="presentation"><a href="#email3" aria-controls="email" role="tab" data-toggle="tab">Email 3 </a></li>
-            <li role="presentation"><a href="#email4" aria-controls="email" role="tab" data-toggle="tab">Email 4</a></li>
-<!--   <li role="presentation" class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      Dropdown sadasda<span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li role="presentation"><a href="#email" aria-controls="email" role="tab" data-toggle="tab">Email</a></li>
-    </ul>
-  </li>  -->
+            <li role="presentation" class="active"><a href="#tab1b" aria-controls="home" role="tab" data-toggle="tab">Tab 1</a></li>
+            <li role="presentation"><a href="#tab2b" aria-controls="profile" role="tab" data-toggle="tab">Tab 2</a></li>
+            <li role="presentation"><a href="#tab3b" aria-controls="messages" role="tab" data-toggle="tab">Lonnnnggggg Tab 3</a></li>
+            <li role="presentation"><a href="#tab4b" aria-controls="settings" role="tab" data-toggle="tab">Very Lonnnnnnnnnggggggg Tab 4</a></li>
+            <li role="presentation"><a href="#tab5b" aria-controls="email" role="tab" data-toggle="tab">Tab 5</a></li>
+            <li role="presentation"><a href="#tab6b" aria-controls="email" role="tab" data-toggle="tab">Lonnnnnnggggggg Tab 6 </a></li>
+            <li role="presentation"><a href="#tab7b" aria-controls="email" role="tab" data-toggle="tab">Tab 7</a></li>
+            <li role="presentation"><a href="#tab8b" aria-controls="email" role="tab" data-toggle="tab">Tab 8</a></li>
           </ul>
 
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="home2">Home Content</div>
-            <div role="tabpanel" class="tab-pane" id="profile2">Profile Content</div>
-            <div role="tabpanel" class="tab-pane" id="messages2">Message</div>
-            <div role="tabpanel" class="tab-pane" id="settings2">Setting</div>
-            <div role="tabpanel" class="tab-pane" id="email2">Email</div>
-
+            <div role="tabpanel" class="tab-pane active" id="tab1b">Tab 1 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab2b">Tab 2 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab3b">Tab 3 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab4b">Tab 4 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab5b">Tab 5 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab6b">Tab 6 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab7b">Tab 7 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab8b">Tab 8 Content</div>
           </div>
 
         </div>
-        <div class="col-md-6">asdasd</div>
+    </div>
+    
+    <br/><br/><br/>
+
+    <div class="row">
+        <div class="col-md-2">Left Side</div>
+        <div class="col-md-4">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs infinite-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#tab1" aria-controls="home" role="tab" data-toggle="tab">Tab 1</a></li>
+            <li role="presentation"><a href="#tab2" aria-controls="profile" role="tab" data-toggle="tab">Tab 2</a></li>
+            <li role="presentation"><a href="#tab3" aria-controls="messages" role="tab" data-toggle="tab">Lonnnnggggg Tab 3</a></li>
+            <li role="presentation"><a href="#tab4" aria-controls="settings" role="tab" data-toggle="tab">Very Lonnnnnnnnnggggggg Tab 4</a></li>
+            <li role="presentation"><a href="#tab5" aria-controls="email" role="tab" data-toggle="tab">Tab 5</a></li>
+            <li role="presentation"><a href="#tab6" aria-controls="email" role="tab" data-toggle="tab">Lonnnnnnggggggg Tab 6 </a></li>
+            <li role="presentation"><a href="#email3" aria-controls="email" role="tab" data-toggle="tab">Tab 7</a></li>
+            <li role="presentation"><a href="#email4" aria-controls="email" role="tab" data-toggle="tab">Tab 8</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab1">Tab 1 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab2">Tab 2 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab3">Tab 3 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab4">Tab 4 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab5">Tab 5 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab6">Tab 6 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab7">Tab 7 Content</div>
+            <div role="tabpanel" class="tab-pane" id="tab8">Tab 8 Content</div>
+          </div>
+
+        </div>
+        <div class="col-md-6">Right Side</div>
     </div>
 </body>
 
 <script type="text/javascript">
 
 $(document).ready(function(){
-
-    $( window ).resize(function() {
-      getInfiniteTabsWidth();
-    });
-
-    var isFirstDropDown = [];
-
-    function getInfiniteTabsWidth() {
-        // get the size of the infinite-tab container
-        $(document).find('.infinite-tabs').each(function(infiniteTabIdx, infiniteTab) {
-            var totalTabsWidth = 0;
-            var infiniteTabWidth = $(infiniteTab).width();
-            var prevTab, prevTabWidth;
-            var hasDropDown = false;
-            
-            $(infiniteTab).find('> li').each(function(idx, tab) {
-
-                // only do calculation on visible elements
-                if ($(tab).is(":visible")) {
-                    var tabWdith = $(tab).width();
-
-                    totalTabsWidth += tabWdith;
-
-                    if (!isFirstDropDown[infiniteTabIdx] && totalTabsWidth >= infiniteTabWidth) {
-                        // set hasDropDown to true
-                        hasDropDown = true;
-
-                        if (!isFirstDropDown[infiniteTabIdx]) {
-                            isFirstDropDown[infiniteTabIdx] = true;
-
-                            $(infiniteTab).append(' \
-        <li role="presentation" class="dropdown"> \
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> \
-                More Tabs <span class="caret"></span> \
-            </a> \
-            <ul class="dropdown-menu">' +
-                $(prevTab).context.outerHTML +
-                $(tab).context.outerHTML +
-            '</ul> \
-        </li>');
-                            $(prevTab).hide();
-                            $(tab).hide();
-                            totalTabsWidth -= tabWdith;
-                            totalTabsWidth -= prevTabWidth;
-                        }
-                    } else if (isFirstDropDown[infiniteTabIdx]) {
-                        if (totalTabsWidth > infiniteTabWidth - 10) {
-                            $(prevTab).hide();                      
-                        }
-                    }
-
-                    prevTab = tab;
-                    prevTabWidth = tabWdith;
-                }
-            })
-        });   
-    }
-
-
-
-
-
-    $('.nav-tabs a').click(function (e) {
+    $(".nav-tabs a").click(function (e) {
       e.preventDefault()
 
-      $(this).tab('show')
-    });
-
-
-    $(document).on('click', '.dropdown-menu li a', function(e) {
-        $(this).parents(".dropdown").find('.dropdown-toggle').html($(this).text() + ' <span class="caret"></span>');
+      $(this).tab("show")
     });
 });    
   
 </script>
+
+
 </html>
